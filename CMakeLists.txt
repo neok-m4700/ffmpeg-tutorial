@@ -1,8 +1,8 @@
 cmake_minimum_required( VERSION 2.8 )
 project( ffmpegtutorial )
-
+ 
 if( NOT CMAKE_MODULE_PATH )
-  set( CMAKE_MODULE_PATH /Users/matt/videosurf/projects/cmake/Modules )
+  set( CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/" )
   message( STATUS "CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}" )
 endif()
 
@@ -17,6 +17,9 @@ find_package( FFMPEG       REQUIRED )
 find_package( LOG4CXX      REQUIRED )
 
 include_directories( ${Boost_INCLUDE_DIRS} ${FFMPEG_INCLUDE_DIR} ${LOG4CXX_INCLUDE_DIR} )
+
+message( STATUS "FFMPEG_INCLUDE_DIR=${FFMPEG_INCLUDE_DIR}" )
+
 
 configure_file (
   "${PROJECT_SOURCE_DIR}/log4j.properties"
